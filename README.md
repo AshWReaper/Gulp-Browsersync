@@ -35,8 +35,9 @@ gulp --version
 npm install --save-dev  gulp-connect-php
 
 ## Create a gulpfile
- - copy the code from this gulp file: 
 
-exports.default = defaultTask; // gulp
-exports.build = buildTask; // gulp build
-exports.start = series(watchFilesTask, browsersyncTask); // gulp start
+Create a new gulpfile.js file and copy the code from here: https://github.com/AshWReaper/Gulp-Browsersync/blob/main/gulpfile.js
+
+# Start the project
+
+gulp start
