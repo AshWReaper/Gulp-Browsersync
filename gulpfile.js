@@ -1,10 +1,14 @@
 /**
-* SET UP CONSTANTS
-**/
+ * SET UP CONSTANTS
+ **/
 const LOCAL_BASEURL = "https://localhost:3000/"
+const LOCALHOST_PROXY = "http://127.0.0.1:8000/"
 const { watch, series } = require('gulp'); // get watch and series from gulp
 const browsersync = require('browser-sync').create(); // get browsersync
-const php = require('gulp-connect-php'); // get gulp php connect 
+const php = require('gulp-connect-php'); // get gulp php connect
+const PROJECT_BASE_DIR = "/dev/";
+const SERVER_BASE_DIR = "./dev/";
+const SERVER_PORT = "8000";
 
 /**
  * DEFAULT TASK
@@ -58,6 +62,8 @@ function watchFilesTask(cb)
     process.stdout.write("Watching files for changes...\n");
 
     watch('php/*.php', phpUpdateTask).on('change', browsersync.reload);
+    watch('couch/*.php', phpUpdateTask).on('change', browsersync.reload);
+    watch('*.php', phpUpdateTask).on('change', browsersync.reload);
 
     // call back function
     cb();
@@ -70,8 +76,8 @@ function browsersyncTask(cb)
 {
     browsersync.init(
 	{
-	    proxy:"http://127.0.0.1:8000/",
-            baseDir: "./php/",
+	    proxy: LOCALHOST_PROXY,
+            baseDir: PROJECT_BASE_DIR,
             open:true,
             notify:false
 	},
@@ -89,8 +95,8 @@ function phpServerTask(cb)
 {
     php.server(
 	{
-	    base: './php/',
-	    port: 8000,
+	    base: SERVER_BASE_DIR,
+	    port: SERVER_PORT,
 	    keepalive: true
 	}
     );
