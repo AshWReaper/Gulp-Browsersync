@@ -1,3 +1,9 @@
+# Quik setup: Use setup_project.sh file!
+
+#######################
+# Manual Instructions #
+#######################
+
 # Setting up Gulp + Browsersync Project
 
 ## Check for node, npm, and npx
