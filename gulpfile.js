@@ -6,9 +6,16 @@ const LOCALHOST_PROXY = "http://127.0.0.1:8000/"
 const { watch, series } = require('gulp'); // get watch and series from gulp
 const browsersync = require('browser-sync').create(); // get browsersync
 const php = require('gulp-connect-php'); // get gulp php connect
+const vftp = require("vinyl-ftp"); // require the vinyl-ftp plugin
+
 const PROJECT_BASE_DIR = "/dev/";
 const SERVER_BASE_DIR = "./dev/";
 const SERVER_PORT = "8000";
+
+const FTP_USER = "gottsmann";
+const FTP_PASS = "uzLWtiR7KEB1s6yqMpr8";
+const FTP_SERVER = "";
+const FTP_PARALLEL = 1;
 
 /**
  * DEFAULT TASK
@@ -70,7 +77,7 @@ function watchFilesTask(cb)
 }
 
 /**
-* STATIC SERVER TASK
+ * STATIC SERVER TASK
  **/
 function browsersyncTask(cb)
 {
@@ -89,7 +96,7 @@ function browsersyncTask(cb)
 }
 
 /**
-* SETUP PHP SERVER
+ * SETUP PHP SERVER
  **/
 function phpServerTask(cb)
 {
@@ -102,6 +109,33 @@ function phpServerTask(cb)
     );
 }
 
+/**
+ * FTP CONNECTION
+ **/
+var ftpTask = function() 
+{
+    var conn = vftp.create(
+	{
+	    host: FTP_SERVER,
+	    user: FTP_USER,
+	    pass: FTP_PASS,
+	    parallel: FTP_PARALLEL,
+	    log: util.log
+	}
+    );
+    return gulp.src(
+	[PROJECT_BASE_DIR + "**"],
+	{
+	    base:"build",
+	    dot:true
+	}
+    ).pipe(
+	conn.newer("/")
+    ).pipe(
+	conn.dest("/")
+    );
+};
+
 exports.default = defaultTask; // gulp
 exports.build = buildTask; // gulp build
-exports.start = series(watchFilesTask, browsersyncTask); // gulp start
+exports.start = series(watchFilesTask, browsersyncTask, ftpTask); // gulp start
