@@ -40,6 +40,9 @@ gulp --version
 
 npm install --save-dev  gulp-connect-php
 
+## Add FTP Support: install the vinyl-ftp plugin using NPM
+npm install --save-dev vinyl-ftp
+
 ## Create a gulpfile
 
 Create a new gulpfile.js file and copy the code from here: https://github.com/AshWReaper/Gulp-Browsersync/blob/main/gulpfile.js
