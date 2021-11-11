@@ -12,8 +12,8 @@ const PROJECT_BASE_DIR = "/dev/";
 const SERVER_BASE_DIR = "./dev/";
 const SERVER_PORT = "8000";
 
-const FTP_USER = "gottsmann";
-const FTP_PASS = "uzLWtiR7KEB1s6yqMpr8";
+const FTP_USER = "";
+const FTP_PASS = "";
 const FTP_SERVER = "";
 const FTP_PARALLEL = 1;
 
@@ -68,8 +68,8 @@ function watchFilesTask(cb)
 {
     process.stdout.write("Watching files for changes...\n");
 
-    watch('php/*.php', phpUpdateTask).on('change', browsersync.reload);
-    watch('couch/*.php', phpUpdateTask).on('change', browsersync.reload);
+    watch('inc/php/*.php', phpUpdateTask).on('change', browsersync.reload);
+    watch('inc/css/*.css', phpUpdateTask).on('change', browsersync.reload);
     watch('*.php', phpUpdateTask).on('change', browsersync.reload);
 
     // call back function
@@ -138,4 +138,4 @@ var ftpTask = function()
 
 exports.default = defaultTask; // gulp
 exports.build = buildTask; // gulp build
-exports.start = series(watchFilesTask, browsersyncTask, ftpTask); // gulp start
+exports.start = series(watchFilesTask, browsersyncTask); // gulp start
