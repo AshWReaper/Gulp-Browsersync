@@ -22,9 +22,15 @@ npx mkdirp $PROJECT_NAME && cd $PROJECT_NAME;
 ## create dev/production directories
 echo "Creating dev directory";
 mkdir dev;
+mkdir dev/inc;
+mkdir dev/inc/php;
+mkdir dev/inc/css;
+mkdir dev/inc/js;
 echo "Creating production directory";
 mkdir production;
-
+mkdir production/inc/php;
+mkdir production/inc/css;
+mkdir production/inc/js;
 ## create index.php file in dev directory
 echo '<?php echo "<h1>Hello, World!</h1>"; ?>' >> dev/index.php;
 
@@ -44,6 +50,10 @@ echo "Gulp version: " $GULP_VERSION
 ## For PHP: add gulp-connect-php as a development dependency
 echo "Installing gulp-coonnect-php dependency";
 npm install --save-dev gulp-connect-php;
+
+## For FTP: install the vinyl-ftp plugin using NPM
+echo "Installing vinyl-ftp plugin";
+sudo npm install --save-dev vinyl-ftp;
 
 ## Create a gulpfile
 echo "copy the code from here: https://github.com/AshWReaper/Gulp-Browsersync/blob/main/gulpfile.js" >> gulpfile.js;
