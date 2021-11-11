@@ -70,6 +70,7 @@ function watchFilesTask(cb)
 
     watch('inc/php/*.php', phpUpdateTask).on('change', browsersync.reload);
     watch('inc/css/*.css', phpUpdateTask).on('change', browsersync.reload);
+    watch('inc/js/*.js', phpUpdateTask).on('change', browsersync.reload);
     watch('*.php', phpUpdateTask).on('change', browsersync.reload);
 
     // call back function
