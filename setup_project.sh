@@ -8,14 +8,14 @@ npm init;
 read -p "What should this project be called?" PROJECT_NAME;
 
 ## check node version
-NODE_VERSION=`node --version;
+NODE_VERSION=`node --version`;
 echo "Node version: " $NODE_VERSION;
 
 ## check npm version
-NPM_VERSION=npm --version;
+NPM_VERSION=`npm --version`;
 
 ## check NPX version:
-NPM_VERSION=npx --version`;
+NPM_VERSION=`npx --version`;
 echo "NPX version: " $NPX_VERSION;
 
 ## Install the gulp command line utility (requires sudo)
