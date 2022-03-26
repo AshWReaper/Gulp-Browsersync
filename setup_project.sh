@@ -1,11 +1,22 @@
 #!/bin/bash
 
+## Create a package.json file in your project directory
+echo "Creating packacge.json file";
+npm init;
+
 ## get project name from user
 read -p "What should this project be called?" PROJECT_NAME;
 
 ## check node version
-NODE_VERSION=`node --version npm --version npx --version`;
+NODE_VERSION=`node --version;
 echo "Node version: " $NODE_VERSION;
+
+## check npm version
+NPM_VERSION=npm --version;
+
+## check NPX version:
+NPM_VERSION=npx --version`;
+echo "NPX version: " $NPX_VERSION;
 
 ## Install the gulp command line utility (requires sudo)
 echo "Installing Gulp CLI";
@@ -20,23 +31,19 @@ echo "Creating a project directory";
 npx mkdirp $PROJECT_NAME && cd $PROJECT_NAME;
 
 ## create dev/production directories
-echo "Creating dev directory";
+echo "Creating dev directorys";
 mkdir dev;
 mkdir dev/inc;
 mkdir dev/inc/php;
 mkdir dev/inc/css;
 mkdir dev/inc/js;
-echo "Creating production directory";
+echo "Creating production directorys";
 mkdir production;
 mkdir production/inc/php;
 mkdir production/inc/css;
 mkdir production/inc/js;
 ## create index.php file in dev directory
 echo '<?php echo "<h1>Hello, World!</h1>"; ?>' >> dev/index.php;
-
-## Create a package.json file in your project directory
-echo "Creating packacge.json file";
-npm init;
 
 ## Install the gulp package in your devDependencies
 echo "installing gulp package dependencies";
