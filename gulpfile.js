@@ -68,10 +68,10 @@ function watchFilesTask(cb)
 {
     process.stdout.write("Watching files for changes...\n");
 
-    watch('inc/php/*.php', phpUpdateTask).on('change', browsersync.reload);
-    watch('inc/css/*.css', phpUpdateTask).on('change', browsersync.reload);
-    watch('inc/js/*.js', phpUpdateTask).on('change', browsersync.reload);
-    watch('*.php', phpUpdateTask).on('change', browsersync.reload);
+    watch('dev/inc/php/*.php', phpUpdateTask).on('change', browsersync.reload);
+    watch('dev/inc/css/*.css', phpUpdateTask).on('change', browsersync.reload);
+    watch('dev/inc/js/*.js', phpUpdateTask).on('change', browsersync.reload);
+    watch('dev/*.php', phpUpdateTask).on('change', browsersync.reload);
 
     // call back function
     cb();
