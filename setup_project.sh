@@ -26,16 +26,20 @@ mkdir production/inc/css;
 mkdir production/inc/js;
 
 ## create index.php file in dev directory
-echo '<head></head>' > dev/index.php;
+echo '<head>' > dev/index.php;
+echo '<link rel="stylesheet" href="./inc/css/styles.css" />' >> dev/index.php;
+echo '</head>' >> dev/index.php;
+echo '</head>' >> dev/index.php;
 echo '<body>' >> dev/index.php;
 echo '<?php echo "<h1>Hello, World!</h1>"; ?>' >> dev/index.php;
+echo '<script type="text/javascript" src="./inc/js/scripts.js"></script>' >> dev/index.php;
 echo '</body>' >> dev/index.php;
 
 ## create css file
 echo '/*styles go here*/' >> dev/inc/css/styles.css;
 
 ## create js file
-echo '// scripts go here' >> dev/inc/js/scripts.css;
+echo '// scripts go here' >> dev/inc/js/scripts.js;
 
 ## Create a package.json file in your project (DEV) directory
 echo "Init NPM & Creating packacge.json file";
