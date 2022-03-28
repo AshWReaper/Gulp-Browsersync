@@ -8,8 +8,8 @@ const browsersync = require('browser-sync').create(); // get browsersync
 const php = require('gulp-connect-php'); // get gulp php connect
 const vftp = require("vinyl-ftp"); // require the vinyl-ftp plugin
 
-const PROJECT_BASE_DIR = "/dev/";
-const SERVER_BASE_DIR = "./dev/";
+const PROJECT_BASE_DIR = "./";
+const SERVER_BASE_DIR = "./";
 const SERVER_PORT = "8000";
 
 const FTP_USER = "";
@@ -68,10 +68,10 @@ function watchFilesTask(cb)
 {
     process.stdout.write("Watching files for changes...\n");
 
-    watch('dev/inc/php/*.php', phpUpdateTask).on('change', browsersync.reload);
-    watch('dev/inc/css/*.css', phpUpdateTask).on('change', browsersync.reload);
-    watch('dev/inc/js/*.js', phpUpdateTask).on('change', browsersync.reload);
-    watch('dev/*.php', phpUpdateTask).on('change', browsersync.reload);
+    watch('/inc/php/*.php', phpUpdateTask).on('change', browsersync.reload);
+    watch('/inc/css/*.css', phpUpdateTask).on('change', browsersync.reload);
+    watch('/inc/js/*.js', phpUpdateTask).on('change', browsersync.reload);
+    watch('*.php', phpUpdateTask).on('change', browsersync.reload);
 
     // call back function
     cb();
