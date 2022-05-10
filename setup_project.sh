@@ -13,6 +13,8 @@ read -p "Would you like to use the Materialize CSS library? (y/n)" MATERIALIZE_C
 ## check to see if Bootstrap is needed
 if [ $MATERIALIZE_CSS_LIBRARY = "n" ]; then
     read -p "Would you like to use the Bootstrap library? (y/n)" BOOTSTRAP_LIBRARY;
+else
+    BOOTSTRAP_LIBRARY='n'
 fi
 
 ## Create a project directory and navigate into it
@@ -26,12 +28,14 @@ mkdir dev/inc;
 mkdir dev/inc/php;
 mkdir dev/inc/css;
 mkdir dev/inc/js;
+mkdir dev/inc/img;
 echo "Creating production directorys";
 mkdir production;
 mkdir production/inc;
 mkdir production/inc/php;
 mkdir production/inc/css;
 mkdir production/inc/js;
+mkdir dev/inc/img;
 
 ######################
 # Create Asset Files #
@@ -71,8 +75,10 @@ echo '// scripts go here' > dev/inc/js/scripts.js;
 ################
 
 ## create index.php file
+echo '<?php include("inc/php/header.php"); ?>' >> dev/index.php;
 echo '<?php echo "<h1>PHP is working</h1>"; ?>' >> dev/index.php;
 echo '<h1>HTML looks okay too...</h1>' >> dev/index.php;
+echo '<?php include("inc/php/footer.php"); ?>' >> dev/index.php;
 
 ## Create a package.json file in your project (DEV) directory
 echo "Init NPM & Creating packacge.json file";
