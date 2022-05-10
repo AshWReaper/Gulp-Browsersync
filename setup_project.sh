@@ -45,6 +45,7 @@ mkdir dev/inc/img;
 echo '<head>' > dev/inc/php/header.php;
 if [ $MATERIALIZE_CSS_LIBRARY = 'y' ]; then
     echo '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">' >> dev/inc/php/header.php;
+    echo '<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">' >> dev/inc/php/header.php;
 fi
 if [ $BOOTSTRAP_LIBRARY = 'y' ]; then
     echo '<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">' >> dev/inc/php/header.php;
