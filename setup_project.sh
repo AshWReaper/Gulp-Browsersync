@@ -135,8 +135,11 @@ sudo npm install --save-dev vinyl-ftp;
 ######################
 cd..;
 ## Create a gulpfile
-echo "copy the code from here: https://github.com/AshWReaper/Gulp-Browsersync/blob/main/gulpfile.js" >> gulpfile.js;
-echo "A gulpfile.js file was created; Replace the text inside with code from: https://github.com/AshWReaper/Gulp-Browsersync/blob/main/gulpfile.js";
+##echo "copy the code from here: https://github.com/AshWReaper/Gulp-Browsersync/blob/main/gulpfile.js" >> gulpfile.js;
+##echo "A gulpfile.js file was created; Replace the text inside with code from: https://github.com/AshWReaper/Gulp-Browsersync/blob/main/gulpfile.js";
+
+## Fetch the Gulpfile
+wget https://raw.githubusercontent.com/AshWReaper/Gulp-Browsersync/main/gulpfile.js
 
 ################################################
 ## PROMPT & EXIT PROGRAM (START GULP ON EXIT) ##
