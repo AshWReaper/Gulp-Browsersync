@@ -146,6 +146,7 @@ wget https://raw.githubusercontent.com/AshWReaper/Gulp-Browsersync/main/gulpfile
 ################################################
 
 ## Prompt to exit
-read -p "Once you've copied the contents of the gulp file then press enter to exit this program and start Gulp";
+## read -p "Once you've copied the contents of the gulp file then press enter to exit this program and start Gulp";
+read -p "All done! Press enter to exit this program and start Gulp";
 
 gulp start;
