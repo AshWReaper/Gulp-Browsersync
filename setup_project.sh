@@ -67,9 +67,11 @@ echo '</body>' >> dev/inc/php/footer.php;
 
 ## create css file
 echo '/*styles go here*/' > dev/inc/css/styles.css;
+echo '.testClass{color:red;}' >> dev/inc/css/styles.css;
 
 ## create js file
 echo '// scripts go here' > dev/inc/js/scripts.js;
+echo 'jQuery(document).ready(function(){alert("jQuery is working!\nRemove this function call from the javascript file!");});' >> dev/inc/js/scripts.js;
 
 ################
 # Create Pages #
@@ -79,6 +81,7 @@ echo '// scripts go here' > dev/inc/js/scripts.js;
 echo '<?php include("inc/php/header.php"); ?>' >> dev/index.php;
 echo '<?php echo "<h1>PHP is working</h1>"; ?>' >> dev/index.php;
 echo '<h1>HTML looks okay too...</h1>' >> dev/index.php;
+echo '<p class="testClass">If this text is red, then the css is also fine...</p>' >> dev/index.php;
 echo '<?php include("inc/php/footer.php"); ?>' >> dev/index.php;
 
 ## Create a package.json file in your project (DEV) directory
@@ -130,13 +133,10 @@ sudo npm install --save-dev gulp-connect-php;
 echo "Installing vinyl-ftp plugin";
 sudo npm install --save-dev vinyl-ftp;
 
-######################
-## CREATE GULP FILE ##
-######################
+##########################
+## FETCH THE GULP FILE ##
+#########################
 cd..;
-## Create a gulpfile
-##echo "copy the code from here: https://github.com/AshWReaper/Gulp-Browsersync/blob/main/gulpfile.js" >> gulpfile.js;
-##echo "A gulpfile.js file was created; Replace the text inside with code from: https://github.com/AshWReaper/Gulp-Browsersync/blob/main/gulpfile.js";
 
 ## Fetch the Gulpfile
 wget https://raw.githubusercontent.com/AshWReaper/Gulp-Browsersync/main/gulpfile.js
